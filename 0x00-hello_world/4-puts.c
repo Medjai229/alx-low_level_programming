@@ -1,10 +1,10 @@
 #include <stdio.h>
 /**
- * main - entry point
+ * main - Entry point
  *
- * Descreption : a c program that prints with put function
+ * Descreption: a c program that prints with put function
  *
- * Return: always 0 (successs)
+ * Return: always 0 (success)
  *
  */
 
