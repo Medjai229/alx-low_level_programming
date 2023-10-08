@@ -2,7 +2,8 @@
 /**
  * main - Entry point
  *
- * Description: a c program that prints all lowercase then uppercase alphabet letters
+ * Description: a c program that prints
+ * all lowercase then uppercase alphabet letters
  *
  * Return: Always 0 (Success)
  */
@@ -17,7 +18,7 @@ int main(void)
 		putchar(c);
 		c++;
 	}
-	  while (C <= 'Z')
+	while (C <= 'Z')
 	{
 		putchar(C);
 		C++;
