@@ -2,7 +2,7 @@
 /**
  * main - Entry point
  *
- * Description: a c program that prints all lowercase alphabet letters 
+ * Description: a c program that prints all lowercase alphabet letters
  * in reverse
  *
  * Return: Always 0 (Success)
