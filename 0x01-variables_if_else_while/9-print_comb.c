@@ -5,7 +5,7 @@
  * Description: a c program thar prints single digit numbers
  * with a space and ','
  *
- * Return: Always 0 (Success) 
+ * Return: Always 0 (Success)
  */
 
 int main(void)
