@@ -10,7 +10,8 @@
 int main(void)
 {
 	int b16 = 48;
-	while ( b16 < 103)
+
+	while (b16 < 103)
 	{
 		putchar(b16);
 		if (b16 == 57)
