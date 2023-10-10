@@ -1,8 +1,6 @@
 #include "main.h"
 /**
- * print_alphabet - a function that prints all alphabet in lowercase
- *
- * Return: there is not return value
+ * print_alphabet - a function that prints all alphabet in lowercasee
  */
 
 void print_alphabet(void)
@@ -11,9 +9,8 @@ void print_alphabet(void)
 
 	while (c >= 'z')
 	{
-		_putchar('c');
+		_putchar(c);
 		c++;
 	}
 	_putchar('\n');
-	return;
 }
