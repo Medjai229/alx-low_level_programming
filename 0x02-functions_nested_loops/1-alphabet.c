@@ -13,5 +13,5 @@ void print_alphabet(void)
 		c++;
 	}
 
-	return (0);
+	return;
 }
