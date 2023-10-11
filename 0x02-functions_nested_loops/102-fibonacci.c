@@ -11,19 +11,19 @@ int main(void)
 {
 	/*assiging the ints*/
 	int i;
-	int f1 = 1;
-	int f2 = 2;
-	int sum = f1 + f2;
+	unsigned long f1 = 1;
+	unsigned long f2 = 2;
+	unsigned long sum = f1 + f2;
 
 	/*printing the first 2 numbers*/
-	printf("%i, ", f1);
-	printf("%i, ", f2);
+	printf("%lu, ", f1);
+	printf("%lu, ", f2);
 
 	/*for loop that will print the 48 remaining numbers*/
 	for (i = 3; i <= 50; i++)
 	{
 		/*prints the sum*/
-		printf("%i, ", sum);
+		printf("%lu, ", sum);
 
 		/*assiging the new f1 and f2*/
 		f1 = f2;
