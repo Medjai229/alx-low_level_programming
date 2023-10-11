@@ -16,7 +16,6 @@ void times_table(void)
 			printf("%i ", k);
 		}
 	
-		_putchar('\n');
 	}
 }
 
