@@ -23,7 +23,7 @@ int main(void)
 	for (i = 3; i <= 50; i++)
 	{
 		/*prints the sum*/
-		printf("%lu, ", sum);
+		printf("%lu", sum);
 
 		/*assiging the new f1 and f2*/
 		f1 = f2;
@@ -31,9 +31,14 @@ int main(void)
 
 		/*the sum of the new f1 and f2*/
 		sum = f1 + f2;
+
+		if (i == 50)
+			printf("\n");
+		else
+			printf(", ");
 	}
 
-	printf("\n");
+
 
 	return (0);
 }
