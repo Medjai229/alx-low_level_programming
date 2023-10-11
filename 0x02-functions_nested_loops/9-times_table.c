@@ -6,14 +6,14 @@
 
 void times_table(void)
 {
-	int i, j;
+	int i, j, k;
 
 	for (i = 0; i < 10; i++)
 	{
-		j = 0;
 		for (j = 0; j < 10; j++)
 		{
-			printf("%i", (i * j));
+			k = i * j
+			printf("%i", k);
 			if (j < 9)
 			{
 				_putchar(',');
