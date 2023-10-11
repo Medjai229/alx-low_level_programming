@@ -56,7 +56,7 @@ int main(void)
 		f2 = sum;
 		f2o = sumo;
 
-		if (count != 98)
+		if (c != 98)
 			printf(", ");
 		else
 			printf("\n");
@@ -64,5 +64,6 @@ int main(void)
 
 	return (0);
 }
+
 
 
