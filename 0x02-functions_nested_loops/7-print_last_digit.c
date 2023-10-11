@@ -4,14 +4,13 @@
  * print_last_digit - prints the last digit of any givien number
  * @n: is the num we want the last digit from
  *
- * Return : Always 0 (Success)
+ * Return: the last digit of the num
  */
 
 int print_last_digit(int n)
 {
 	int i = n % 10;
 
-	_putchar('0' + i);
-	return (0);
+	return (i);
 }
 
