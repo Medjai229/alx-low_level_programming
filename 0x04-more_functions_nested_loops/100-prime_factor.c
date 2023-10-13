@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	long long largestprime = -1, i = 2, n = 612852475143;
+	long largestprime = -1, i = 2, n = 612852475143;
 
 	while (i * i <= n)
 	{
@@ -23,7 +23,7 @@ int main(void)
 	{
 		largestprime = n;
 	}
-	printf("%lld\n", largestprime);
+	printf("%ld\n", largestprime);
 
 	return (0);
 }
