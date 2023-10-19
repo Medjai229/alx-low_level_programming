@@ -22,6 +22,7 @@ char *rot13(char *c)
 			if (c[i] == normal[j])
 			{
 				c[i] = r13[j];
+				break;
 			}
 		}
 	}
