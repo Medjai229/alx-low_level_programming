@@ -20,8 +20,8 @@ void print_buffer(char *b, int size)
 
 	while (n < size)
 	{
-		if (size - o < 10)
-			j = size - o;
+		if (size - n < 10)
+			j = size - n;
 		else
 			j = 10;
 		printf("%08x: ", n);
