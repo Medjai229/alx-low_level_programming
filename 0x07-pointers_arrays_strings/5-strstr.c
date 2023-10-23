@@ -8,7 +8,6 @@
  * @needle: the substring
  *
  * Return: the valure in haystack from the the needle
- *
  */
 
 char *_strstr(char *haystack, char *needle)
@@ -21,4 +20,5 @@ char *_strstr(char *haystack, char *needle)
 			return (haystack + i);
 	}
 	return (0);
+
 }
