@@ -51,10 +51,12 @@ int is_palin(char *s, int st, int e)
 
 int _strlen(char *s)
 {
-	int c;
+	int c = 0;
 
-	for (c = 0; *s != '\0'; s++)
+	if (*s > '\0')
+	{
 		c++;
-
+		c += _strlen(s + 1);
+	}
 	return (c);
 }
