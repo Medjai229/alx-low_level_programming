@@ -4,7 +4,8 @@
 int check_prime(int n, int i);
 
 /**
- * is_prime_number - returns 1 if the input integer is a prime number, otherwise return 0
+ * is_prime_number - returns 1 if the input integer is a prime number
+ * otherwise return 0
  *
  * @n: the number to be checked
  *
@@ -13,11 +14,12 @@ int check_prime(int n, int i);
 
 int is_prime_number(int n)
 {
-	return check_prime(n, 2);
+	return (check_prime(n, 2));
 }
 
 /**
- * check_prime - returns 1 if the input integer is a prime number, otherwise return 0
+ * check_prime - returns 1 if the input integer is a prime number
+ * otherwise return 0
  *
  * @n: the number to be checked
  * @i: the number that is incremented
