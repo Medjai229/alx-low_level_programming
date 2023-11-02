@@ -50,7 +50,6 @@ char *multi(char *str1, char *str2)
     l1 = _strlen(str1);
     l2 = _strlen(str2);
 
-    // Allocate memory for the result, including space for the null-terminator.
     res = (char *)malloc(l1 + l2 + 1);
 
     if (res == NULL)
@@ -78,7 +77,6 @@ char *multi(char *str1, char *str2)
         car = 0;
     }
     
-    // Null-terminate the result.
     res[l1 + l2] = '\0';
 
     return (res);
