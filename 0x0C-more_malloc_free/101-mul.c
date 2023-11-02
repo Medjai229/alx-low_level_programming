@@ -97,31 +97,27 @@ char *multi(char *str1, char *str2)
 
 int main(int argc, char **argv)
 {
-	char *res;
-	int i = 0, cd, tl;
+	char *r;
+	int a, c, x;
 
 	if (argc != 3)
+		printf("Error\n"), exit(98);
+
+	x = _strlen(argv[1]) + _strlen(argv[2]);
+	r = big_multiply(argv[1], argv[2]);
+	c = 0;
+	a = 0;
+	while (c < x)
 	{
-		printf("Error\n");
-		exit(98);
+		if (r[c])
+			a = 1;
+		if (a)
+			_putchar(r[c] + '0');
+		c++;
 	}
-
-	res = multi(argv[1], argv[2]);
-	tl = _strlen(res);
-	cd = 0;
-
-	while (cd < tl)
-	{
-		if (res[cd])
-			i = 1;
-
-		if (i)
-			_putchar(res[cd] + '0');
-		cd++;
-	}
-	if (!i)
+	if (!a)
 		_putchar('0');
 	_putchar('\n');
-	free(res);
+	free(r);
 	return (0);
 }
