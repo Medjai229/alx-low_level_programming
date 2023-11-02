@@ -44,8 +44,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	/*copy first n bytes of s2 to str*/
 
 	for (j = 0; j < n; j++)
-		str[l1 + j] = s2[j];
+	{
+		str[i] = s2[j];
+		i++;
+	}
 
-	str[l1 + n + 1] = '\0';
+	str[i] = '\0';
 	return (str);
 }
