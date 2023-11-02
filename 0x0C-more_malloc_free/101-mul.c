@@ -49,8 +49,7 @@ char *multiply(char *str1, char *str2)
 	res = malloc(l1 + l2 + 1);
 	if (res == NULL)
 	{
-		printf("Error\n");
-		exit(98);
+		printf("Error\n"), exit(98);
 	}
 	for (i = 0; i < l1 + l2; i++)
 		res[i] = '0';
@@ -60,8 +59,7 @@ char *multiply(char *str1, char *str2)
 		if (!_isdigit(str1[i]))
 		{
 			free(res);
-			printf("Error\n");
-			exit(98);
+			printf("Error\n"), exit(98);
 		}
 		a = str1[i] - '0';
 		carry = 0;
@@ -76,7 +74,6 @@ char *multiply(char *str1, char *str2)
 			}
 			b = str2[j] - '0';
 			product = (res[i + j + 1] - '0') + a * b + carry;
-
 			res[i + j + 1] = (product % 10) + '0';
 			carry = product / 10;
 		}
