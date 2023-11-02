@@ -1,5 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
+
+/**
+ * _puts - prints a string
+ *
+ * @str: the string to be printed
+ */
+
+void _puts(const char *str)
+{
+	int i = 0;
+
+	while(str[i])
+	{
+		_putchar(str[i]);
+		i++;
+	}
+}
 
 /**
  * is_positive_int - checks if the string is a positive integer
@@ -18,6 +36,31 @@ int is_positive_int(const char *str)
 		str++;
 	}
 	return (1);
+}
+
+/**
+ * print_int - print an int
+ *
+ * @n: the int to be printed
+ */
+
+void print_int(unsigned long int n)
+{
+	unsigned long int div = 1, i = 0, res;
+
+	while (n / div > 9)
+	{
+		i++;
+		div *= 10;
+	}
+
+	while (div >= 1)
+	{
+		res = n / div;
+		_putchar('0' + res);
+		n %= div;
+		div /= 10;
+	}
 }
 
 /**
@@ -73,7 +116,8 @@ int main(int argc, char *argv[])
 	}
 
 	res = _atoi(n1) * _atoi(n2);
-	printf("%d\n", res);
+	print_int(res);
+	_putchar('\n');
 
 	return (0);
 }
