@@ -49,7 +49,7 @@ char *multi(char *str1, char *str2)
 
 	l1 = _strlen(str1);
 	l2 = _strlen(str2);
-	res = malloc(l1 + l2);
+	res = malloc(l1 + l2 + 1);
 	if (res == NULL)
 	{
 		printf("Error\n");
@@ -79,10 +79,9 @@ char *multi(char *str1, char *str2)
 			res[i + j + 1] = (pro % 10) + '0';
 			car = pro / 10;
 		}
-		res[i] += car;
+		if (car)
+			res[l1 + l2 + 1] += car;
 	}
-	while (*res == '0' && *(res + 1) != '\0')
-		res++;
 	return (res);
 }
 
