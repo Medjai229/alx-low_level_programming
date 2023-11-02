@@ -55,6 +55,8 @@ int main(int argc, char *argv[])
 	char *n2;
 	int res;
 
+	(void)argc;
+
 	if (argc != 3)
 	{
 		printf("Error\n");
