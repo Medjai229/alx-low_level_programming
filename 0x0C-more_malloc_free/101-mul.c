@@ -62,7 +62,6 @@ int _atoi(const char *str)
 	for (i = fn; str[i] >= '0' && str[i] <= '9'; i++)
 	{
 		res = res * 10 + (str[i] - '0');
-		str++;
 	}
 	return (sign * res);
 }
