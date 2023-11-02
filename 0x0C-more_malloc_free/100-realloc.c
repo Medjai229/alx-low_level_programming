@@ -41,10 +41,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		else
 			copy_size = new_size;
 
-		/*cast new charcter pointers*/
-		/*new_ptr_char = (char *)new_ptr;*/
-		/*ptr_char = (char *)ptr;*/
-
 		/*copy the old data to the new memory*/
 		for (i = 0; i < copy_size; i++)
 			*((char *)new_ptr + i) = *((char *)ptr + i);
