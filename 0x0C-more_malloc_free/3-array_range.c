@@ -19,7 +19,7 @@ int *array_range(int min, int max)
 
 	/*memory allocation*/
 
-	ary = malloc(sizeof(int) * (max - min) + 1);
+	ary = malloc(sizeof(int) * ((max - min) + 1));
 
 	if (ary == NULL)
 		return (NULL);
