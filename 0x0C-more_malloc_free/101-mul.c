@@ -8,9 +8,9 @@
  *
  * Return: 1 if digit, 0 otherwise
  */
-int _isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
+
+int _isdigit(int ch) {
+    return (ch >= '0' && ch <= '9');
 }
 
 /**
@@ -40,8 +40,8 @@ char *multiply(char *str1, char *str2) {
     char *res = malloc(l1 + l2 + 1);
 
     if (res == NULL) {
-        printf("Error: Memory allocation failed\n");
-        exit(1);
+        printf("Error\n");
+        exit(98);
     }
 
     for (int i = 0; i < l1 + l2; i++) {
@@ -52,8 +52,8 @@ char *multiply(char *str1, char *str2) {
     for (int i = l1 - 1; i >= 0; i--) {
         if (!_isdigit(str1[i])) {
             free(res);
-            printf("Error: Invalid character in the first number\n");
-            exit(1);
+            printf("Error\n");
+            exit(98);
         }
 
         int a = str1[i] - '0';
@@ -62,8 +62,8 @@ char *multiply(char *str1, char *str2) {
         for (int j = l2 - 1; j >= 0; j--) {
             if (!_isdigit(str2[j])) {
                 free(res);
-                printf("Error: Invalid character in the second number\n");
-                exit(1);
+                printf("Error\n");
+                exit(98);
             }
 
             int b = str2[j] - '0';
@@ -89,33 +89,21 @@ char *multiply(char *str1, char *str2) {
  *
  * Return: Always 0 on success.
  */
-int main(int argc, char **argv)
-{
-	char *res;
-	int i = 0, cd, tl;
+int main(int argc, char **argv) {
+    if (argc != 3) {
+        printf("Error: Usage: %s <number1> <number2>\n", argv[0]);
+        return 1;
+    }
 
-	if (argc != 3)
-	{
-		printf("Error\n");
-		exit(98);
-	}
+    char *result = multiply(argv[1], argv[2]);
 
-	res = multi(argv[1], argv[2]);
-	tl = _strlen(res);
-	cd = 0;
+    if (*result == '\0') {
+        putchar('0');
+    } else {
+        printf("%s\n", result);
+    }
 
-	while (cd < tl)
-	{
-		if (res[cd])
-			i = 1;
+    free(result);
 
-		if (i)
-			_putchar(res[cd] + '0');
-		cd++;
-	}
-	if (!i)
-		_putchar('0');
-	_putchar('\n');
-	free(res);
-	return (0);
+    return 0;
 }
