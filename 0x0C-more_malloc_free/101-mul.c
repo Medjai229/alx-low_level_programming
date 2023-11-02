@@ -45,46 +45,48 @@ int _strlen(char *str)
 
 char *multiply(char *str1, char *str2)
 {
-	int l1, l2, i, j, a, b, carry, product;
-	char *res;
+    int l1, l2, i, j, a, b, carry, product;
+    char *res;
 
-	l1 = _strlen(str1), l2 = _strlen(str1);
-	res = malloc(l1 + l2 + 1);
-	if (res == NULL)
-	{
-		printf("Error\n"), exit(98);
-	}
-	for (i = 0; i < l1 + l2; i++)
-		res[i] = '0';
-	res[l1 + l2] = '\0';
-	for (i = l1 - 1; i >= 0; i--)
-	{
-		if (!_isdigit(str1[i]))
-		{
-			free(res);
-			printf("Error\n"), exit(98);
-		}
-		a = str1[i] - '0';
-		carry = 0;
-
-		for (j = l2 - 1; j >= 0; j--)
-		{
-			if (!_isdigit(str2[j]))
-			{
-				free(res);
-				printf("Error\n");
-				exit(98);
-			}
-			b = str2[j] - '0';
-			product = (res[i + j + 1] - '0') + a * b + carry;
-			res[i + j + 1] = (product % 10) + '0';
-			carry = product / 10;
-		}
-		res[i] += carry;
-	}
-	while (*res == '0' && *(res + 1) != '\0')
-		res++;
-	return (res);
+    l1 = _strlen(str1);
+    l2 = _strlen(str2);
+    res = malloc(l1 + l2 + 1);
+    if (res == NULL)
+    {
+        printf("Error\n");
+        exit(98);
+    }
+    for (i = 0; i < l1 + l2; i++)
+        res[i] = '0';
+    res[l1 + l2] = '\0';
+    for (i = l1 - 1; i >= 0; i--)
+    {
+        if (!_isdigit(str1[i]))
+        {
+            free(res);
+            printf("Error\n");
+            exit(98);
+        }
+        a = str1[i] - '0';
+        carry = 0;
+        for (j = l2 - 1; j >= 0; j--)
+        {
+            if (!_isdigit(str2[j]))
+            {
+                free(res);
+                printf("Error\n");
+                exit(98);
+            }
+            b = str2[j] - '0';
+            product = (res[i + j + 1] - '0') + a * b + carry;
+            carry = product / 10;
+            res[i + j + 1] = (product % 10) + '0';
+        }
+        res[i] += carry;
+    }
+    while (*res == '0' && *(res + 1) != '\0')
+        res++;
+    return (res);
 }
 
 /**
