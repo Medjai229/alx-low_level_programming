@@ -44,44 +44,45 @@ int _strlen(char *str)
 
 char *multi(char *str1, char *str2)
 {
-    int l1, l2, i, j, a, b, pro, car = 0;
-    char *res;
+	char *r;
+	int l1, l2, a, b, c, x;
 
-    l1 = _strlen(str1);
-    l2 = _strlen(str2);
+	l1 = _strlen(s1);
+	l2 = _strlen(s2);
+	r = malloc(a = x = l1 + l2);
+	if (!r)
+		printf("Error\n"), exit(98);
+	while (a--)
+		r[a] = 0;
 
-    // Allocate memory for the result, including space for the null-terminator.
-    res = (char *)malloc(l1 + l2 + 1);
+	for (l1--; l1 >= 0; l1--)
+	{
+		if (!_isdigit(s1[l1]))
+		{
+			free(r);
+			printf("Error\n"), exit(98);
+		}
+		a = s1[l1] - '0';
+		c = 0;
 
-    if (res == NULL)
-    {
-        printf("Error\n");
-        exit(98);
-    }
+		for (l2 = _strlen(s2) - 1; l2 >= 0; l2--)
+		{
+			if (!_isdigit(s2[l2]))
+			{
+				free(r);
+				printf("Error\n"), exit(98);
+			}
+			b = s2[l2] - '0';
 
-    for (i = 0; i < l1 + l2; i++)
-        res[i] = '0';
+			c += r[l1 + l2 + 1] + (a * b);
+			r[l1 + l2 + 1] = c % 10;
 
-    for (i = l1 - 1; i >= 0; i--)
-    {
-        a = str1[i] - '0';
-
-        for (j = l2 - 1; j >= 0; j--)
-        {
-            b = str2[j] - '0';
-
-            pro = (res[i + j + 1] - '0') + a * b + car;
-            car = pro / 10;
-            res[i + j + 1] = (pro % 10) + '0';
-        }
-        res[i] += car;
-        car = 0;
-    }
-    
-    // Null-terminate the result.
-    res[l1 + l2] = '\0';
-
-    return (res);
+			c /= 10;
+		}
+		if (c)
+			r[l1 + l2 + 1] += c;
+	}
+	return (r);
 }
 
 
