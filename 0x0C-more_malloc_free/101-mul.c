@@ -12,31 +12,12 @@ void _puts(const char *str)
 {
 	int i = 0;
 
-	while(str[i])
+	while (str[i])
 	{
 		_putchar(str[i]);
 		i++;
 	}
 }
-
-/**
- * is_positive_int - checks if the string is a positive integer
- *
- * @str: the string to be checked
- *
- * Return: if all char are digits return 1 (true) if not return 0 (false)
- */
-
-/*int is_positive_int(const char *str)
-{
-	while (*str)
-	{
-		if (*str < '0' || *str > '9')
-			return (0);
-		str++;
-	}
-	return (1);
-}*/
 
 /**
  * print_int - print an int
@@ -46,20 +27,16 @@ void _puts(const char *str)
 
 void print_int(unsigned long int n)
 {
-	unsigned long int div = 1, i = 0, res;
+	unsigned long int div = 1, i, res;
 
-	while (n / div > 9)
-	{
-		i++;
-		div *= 10;
-	}
+	for (i = 0; n / div > 9; i++, div *= 10)
+		;
 
-	while (div >= 1)
+
+	for (; div >= 1; n %= div, div /= 10)
 	{
 		res = n / div;
 		_putchar('0' + res);
-		n %= div;
-		div /= 10;
 	}
 }
 
@@ -81,7 +58,7 @@ int _atoi(const char *str)
 		if (str[fn] == '-')
 			sign *= -1;
 	}
-	
+
 	for (i = fn; str[i] >= '0' && str[i] <= '9'; i++)
 	{
 		res = res * 10 + (str[i] - '0');
@@ -101,29 +78,15 @@ int _atoi(const char *str)
 
 int main(int argc, char *argv[])
 {
-	char *n1;
-	char *n2;
-	int res;
-
 	(void)argc;
 
 	if (argc != 3)
 	{
-		printf("Error\n");
+		_puts("Error ");
 		exit(98);
 	}
 
-	n1 = argv[1];
-	n2 = argv[2];
-
-	/*if (!is_positive_int(n1) || !is_positive_int(n2))
-	{
-		printf("Error\n");
-		exit(98);
-	}*/
-
-	res = _atoi(n1) * _atoi(n2);
-	print_int(res);
+	print_int(_atoi(argv[1]) * _atoi(argv[2]));
 	_putchar('\n');
 
 	return (0);
