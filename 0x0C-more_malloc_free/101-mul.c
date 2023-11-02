@@ -73,14 +73,21 @@ void print_int(unsigned long int n)
 
 int _atoi(const char *str)
 {
-	int res = 0;
+	int sign = 1;
+	unsigned long int res = 0, fn, i;
 
-	while (*str)
+	for (fn = 0; !(str[fn] >= '0' && str[fn] <= '9'); fn++)
 	{
-		res = res * 10 + (*str - '0');
+		if (str[fn] == '-')
+			sign *= -1;
+	}
+	
+	for (i = fn; str[i] >= '0' && str[i] <= '9'; i++)
+	{
+		res = res * 10 + (str[i] - '0');
 		str++;
 	}
-	return (res);
+	return (sign * res);
 }
 
 /**
