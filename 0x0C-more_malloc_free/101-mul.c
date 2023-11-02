@@ -27,7 +27,7 @@ void _puts(const char *str)
  * Return: if all char are digits return 1 (true) if not return 0 (false)
  */
 
-int is_positive_int(const char *str)
+/*int is_positive_int(const char *str)
 {
 	while (*str)
 	{
@@ -36,7 +36,7 @@ int is_positive_int(const char *str)
 		str++;
 	}
 	return (1);
-}
+}*/
 
 /**
  * print_int - print an int
@@ -109,11 +109,11 @@ int main(int argc, char *argv[])
 	n1 = argv[1];
 	n2 = argv[2];
 
-	if (!is_positive_int(n1) || !is_positive_int(n2))
+	/*if (!is_positive_int(n1) || !is_positive_int(n2))
 	{
 		printf("Error\n");
 		exit(98);
-	}
+	}*/
 
 	res = _atoi(n1) * _atoi(n2);
 	print_int(res);
