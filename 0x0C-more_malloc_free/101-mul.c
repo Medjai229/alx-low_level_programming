@@ -1,92 +1,89 @@
 #include "main.h"
-#include <string.h>
 
 /**
  * _isdigit - checks if character is digit
  *
- * @ch: the character to check
+ * @ch: the pointer to array of char
  *
  * Return: 1 if digit, 0 otherwise
  */
-
-int _isdigit(int ch)
-{
-	return (ch >= '0' && ch <= '9');
-}
-
-/**
- * _strlen - returns the length of a string
- *
- * @str: the string whose length to check
- *
- * Return: integer length of string
- */
-
-int _strlen(char *str)
+int _isdigit(char *ch)
 {
 	int i = 0;
 
-	if (str == NULL)
-		return (0);
-
-	while (str[i] != '\0')
+	while (ch[i])
+	{
+		if (ch[i] < '0' || ch[i] > '9')
+			return (0);
 		i++;
+	}
+	return (1);
+}
+
+
+/**
+ * _strlen - returns the length of a string
+ * @s: string to evaluate
+ *
+ * Return: the length of the string
+ */
+
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+	{
+		i++;
+	}
 	return (i);
 }
 
 /**
- * multiply - multiply two big number strings
+ * multiplyStrings - multiplies strings
  *
- * @str1: the first number string
- * @str2: the second number string
+ * @s1: first string
+ * @s2: second string
  *
- * Return: the product big number string
+ * Return: result of multiplication
  */
 
-char *multiply(char *str1, char *str2)
+int *multiplyStrings(char *s1, char *s2)
 {
-    int l1, l2, i, j, a, b, carry, product;
-    char *res;
+	int len1, len2, len, i, j, digit1, digit2, carry;
+	int *result;
 
-    l1 = _strlen(str1);
-    l2 = _strlen(str2);
-    res = malloc(l1 + l2 + 1);
-    if (res == NULL)
-    {
-        printf("Error\n");
-        exit(98);
-    }
-    for (i = 0; i < l1 + l2; i++)
-        res[i] = '0';
-    res[l1 + l2] = '\0';
-    for (i = l1 - 1; i >= 0; i--)
-    {
-        if (!_isdigit(str1[i]))
-        {
-            free(res);
-            printf("Error\n");
-            exit(98);
-        }
-        a = str1[i] - '0';
-        carry = 0;
-        for (j = l2 - 1; j >= 0; j--)
-        {
-            if (!_isdigit(str2[j]))
-            {
-                free(res);
-                printf("Error\n");
-                exit(98);
-            }
-            b = str2[j] - '0';
-            product = (res[i + j + 1] - '0') + a * b + carry;
-            carry = product / 10;
-            res[i + j + 1] = (product % 10) + '0';
-        }
-        res[i] += carry;
-    }
-    while (*res == '0' && *(res + 1) != '\0')
-        res++;
-    return (res);
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	len = len1 + len2 + 1;
+	result = malloc(sizeof(int) * len);
+
+
+	if (!result)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+
+	for (i = 0; i <= len1 + len2; i++)
+		result[i] = 0;
+
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		digit1 = s1[i] - '0';
+		carry = 0;
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			digit2 = s2[j] - '0';
+			carry += result[i + j + 1] + (digit1 * digit2);
+			result[i + j + 1] = carry % 10;
+			carry /= 10;
+		}
+		if (carry > 0)
+		result[i + len2 + 1] += carry;
+	}
+
+	return (result);
 }
 
 /**
@@ -98,24 +95,42 @@ char *multiply(char *str1, char *str2)
  * Return: Always 0 on success.
  */
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	char *result;
+	char *s1, *s2;
+	int *result;
+	int len, i, a = 0;
 
-	if (argc != 3)
+	s1 = argv[1], s2 = argv[2];
+	len = _strlen(s1) + _strlen(s2) + 1;
+	result = malloc(sizeof(int) * len);
+
+	if (!result)
 	{
 		printf("Error\n");
 		exit(98);
 	}
 
-	result = multiply(argv[1], argv[2]);
+	if (argc != 3 || !_isdigit(s1) || !_isdigit(s2))
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
-	if (*result == '\0')
+	result = multiplyStrings(s1, s2);
+
+	for (i = 0; i < len - 1; i++)
+	{
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
+	}
+	if (!a)
 		_putchar('0');
-	else
-		printf("%s\n", result);
-
+	_putchar('\n');
 	free(result);
 
 	return (0);
 }
+
