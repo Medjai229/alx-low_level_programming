@@ -12,7 +12,7 @@ int _strlen(char *s)
 {
 	int c;
 
-	while(*s++)
+	for (c = 0; *s; s++)
 		c++;
 
 	return (c);
@@ -28,7 +28,7 @@ int _strlen(char *s)
 
 char *_strcpy(char *dest, char *src)
 {
-	int i;
+	int i = -1;
 
 	do {
 		i++;
