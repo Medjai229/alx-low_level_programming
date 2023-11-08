@@ -10,25 +10,32 @@
  * Return: Always 0
  */
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	int i, bytes;
-	char *mainaddr;
+	char *add
 
 	if (argc != 2)
-		printf("Error\n"), exit(1);
+	{
+		printf("Error\n");
+		exit(1);
+	}
 
 	bytes = atoi(argv[1]);
 
 	if (bytes < 0)
-		printf("Error\n"), exit(2);
+	{
+		printf("Error\n");
+		exit(2);
+	}
 
-	mainaddr = (char *)main;
+	add = (char *)main;
 
-	for (i = 0; i < bytes - 1; i++)
-		printf("%02hhx ", mainaddr[i]);
-
-	printf("%02hhx\n", mainaddr[i]);
+	for (i = 0; i < bytes; i++)
+		if (i < bytes - 1)
+			printf("%02hhx ", add[i]);
+		else
+			printf("%02hhx\n", add[i]);
 
 	return (0);
 }
