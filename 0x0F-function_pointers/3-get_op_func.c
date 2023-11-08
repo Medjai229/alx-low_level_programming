@@ -18,11 +18,11 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-	int i;
+	int i = 0;
 
-	for (i = 0; (ops[i].op[0] != s[0]) && i < 5; i++)
+	while ((ops[i].op[0] != s[0]) && i < 5)
 	{
-		;
+		i++;
 	}
 
 	return (ops[i].f);
