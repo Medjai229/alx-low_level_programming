@@ -2,9 +2,9 @@
 
 /**
  * get_op_func - pointer to a function that performs an operation
- * 
+ *
  * @s: the operation
- * 
+ *
  * Return: a function that operates with two integers
  */
 

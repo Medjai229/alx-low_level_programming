@@ -2,10 +2,10 @@
 
 /**
  * main - performs simple operations
- * 
+ *
  * @argc: number of arg
  * @argv: array of arg
- * 
+ *
  * Return: Always 0
  */
 

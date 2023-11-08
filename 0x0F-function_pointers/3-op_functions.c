@@ -48,7 +48,7 @@ int op_mul(int a, int b)
  * @a: first interger
  * @b: second integer
  *
- * Return: the divison 
+ * Return: the divison
  */
 
 int op_div(int a, int b)
