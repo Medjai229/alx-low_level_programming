@@ -29,9 +29,11 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	for (i = 0; i < bytes - 1; i++)
-		printf("%02hhx ", add[i]);
-	printf("%02hhx\n", add[i]);
+	for (i = 0; i <= bytes; i++)
+		if (i < bytes)
+			printf("%02hhx ", add[i]);
+		else
+			printf("%02hhx\n", add[i]);
 
 	return (0);
 }
