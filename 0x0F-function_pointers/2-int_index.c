@@ -2,12 +2,12 @@
 
 /**
  * int_index - searches for an integer
- * 
+ *
  * @array: array of intergers
  * @size: size of array
  * @cmp: ponter to function
- * 
- * Return: if any number match return its index of not return -1 
+ *
+ * Return: if any number match return its index of not return -1
  */
 
 int int_index(int *array, int size, int (*cmp)(int))
