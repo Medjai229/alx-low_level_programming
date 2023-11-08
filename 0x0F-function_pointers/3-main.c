@@ -34,7 +34,6 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 
-	func = get_op_func(argv[2]);
 	result = func(atoi(argv[1]), atoi(argv[3]));
 	printf("%d\n", result);
 	return (0);
