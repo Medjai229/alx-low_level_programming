@@ -20,11 +20,11 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 		dprintf(STDERR_FILENO, USAGE), exit(97);
-	
+
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
 		dprintf(STDERR_FILENO, ERROR_NOREAD, argv[1]), exit(98);
-	
+
 	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
 		dprintf(STDERR_FILENO, ERROR_NOWRITE, argv[2]), exit(99);
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, ERROR_NOCLOSE, fd_from), exit(100);
 
 	if (fd_to == -1)
-		dprintf(STDERR_FILENO, ERROR_NOCLOSE, fd_to), exit(100);
+		dprintf(STDERR_FILENO, ERROR_NOCLOSE, fd_from), exit(100);
 
 	return (0);
 }
