@@ -232,7 +232,7 @@ void _entry(Elf64_Ehdr h)
 /**
  * main - program
  * @argc: argument count
- * @argv: array of arguments 
+ * @argv: array of arguments
  *
  * Return: 0 on success
  */
