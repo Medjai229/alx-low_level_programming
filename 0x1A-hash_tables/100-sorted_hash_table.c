@@ -16,18 +16,16 @@ shash_table_t *shash_table_create(unsigned long int size)
 		return (NULL);
 
 	new_table->size = size;
-	new_table->shead = NULL;
-	new_table->stail = NULL;
 	new_table->array = malloc(sizeof(shash_node_t *) * size);
 
 	if (new_table->array == NULL)
-	{
-		free(new_table);
 		return (NULL);
-	}
 
 	for (index = 0; index < size; index++)
 		new_table->array[index] = NULL;
+
+	new_table->shead = NULL;
+	new_table->stail = NULL;
 
 	return (new_table);
 }
@@ -45,7 +43,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	shash_node_t *new_node, *traverse;
 	unsigned long int index;
 
-	if (ht == NULL || key == NULL || *key == 0 || value == NULL)
+	if (ht == NULL || key == NULL || *key =='\0' || value == NULL)
 		return (0);
 
 	index = key_index((const unsigned char *)key, ht->size);
@@ -81,14 +79,15 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 	if (ht->shead == NULL)
 	{
-		new_node->snext = NULL;
 		new_node->sprev = NULL;
+		new_node->snext = NULL;
 		ht->shead = new_node;
+		ht->stail = new_node;
 	}
 	else if (strcmp(ht->shead->key, key) > 0)
 	{
-		new_node->snext = ht->shead;
 		new_node->sprev = NULL;
+		new_node->snext = ht->shead;
 		ht->shead->sprev = new_node;
 		ht->shead = new_node;
 	}
@@ -98,13 +97,14 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		while (traverse->snext != NULL && strcmp(traverse->key, key) < 0)
 			traverse = traverse->snext;
 
-		new_node->snext = traverse->snext;
 		new_node->sprev = traverse;
+		new_node->snext = traverse->snext;
 
 		if (traverse->snext == NULL)
 			ht->stail = new_node;
 		else
 			traverse->snext->sprev = new_node;
+
 		traverse->snext = new_node;
 	}
 
