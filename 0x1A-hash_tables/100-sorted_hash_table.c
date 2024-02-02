@@ -16,7 +16,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 		return (NULL);
 
 	new_table->size = size;
-	new_tabl->array = malloc(sizeof(shash_node_t *) * size);
+	new_table->array = malloc(sizeof(shash_node_t *) * size);
 
 	if (new_table->array == NULL)
 		return (NULL);
@@ -130,7 +130,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	if (index >= ht->size)
 		return (NULL);
 
-	node ht->shead;
+	node = ht->shead;
 
 	while (node && strcmp(node->key, key) != 0)
 		node = node->snext;
