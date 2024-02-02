@@ -124,7 +124,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	unsigned long int index;
 	shash_node_t *node;
 
-	if (ht == NULL || key == NULL || *key == 0)
+	if (ht == NULL || key == NULL || *key == '\0')
 		return (NULL);
 
 	index = key_index((const unsigned char *) key, ht->size);
@@ -134,7 +134,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 
 	node = ht->shead;
 
-	while (node && strcmp(node->key, key) != 0)
+	while (node != NULL && strcmp(node->key, key) != 0)
 		node = node->snext;
 
 	if (node == NULL)
