@@ -16,16 +16,18 @@ shash_table_t *shash_table_create(unsigned long int size)
 		return (NULL);
 
 	new_table->size = size;
+	new_table->shead = NULL;
+	new_table->stail = NULL;
 	new_table->array = malloc(sizeof(shash_node_t *) * size);
 
 	if (new_table->array == NULL)
+	{
+		free(new_table);
 		return (NULL);
+	}
 
 	for (index = 0; index < size; index++)
 		new_table->array[index] = NULL;
-
-	new_table->shead = NULL;
-	new_table->stail = NULL;
 
 	return (new_table);
 }
